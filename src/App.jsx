@@ -1,70 +1,67 @@
+import { motion } from 'framer-motion'
+import CuteChristmasScene from './components/CuteChristmasScene'
+
 function App() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
-      {/* Subtle pattern overlay */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(59,130,246,0.05),transparent_50%)]"></div>
+    <div className="min-h-screen bg-gradient-to-br from-rose-100 via-amber-100 to-emerald-100 relative overflow-hidden">
+      {/* soft lights */}
+      <div className="pointer-events-none absolute inset-0">
+        <div className="absolute -top-24 -left-24 w-96 h-96 bg-rose-300/40 blur-3xl rounded-full" />
+        <div className="absolute -bottom-24 -right-24 w-[28rem] h-[28rem] bg-emerald-300/40 blur-3xl rounded-full" />
+        <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[36rem] h-[36rem] bg-amber-300/30 blur-3xl rounded-full" />
+      </div>
 
-      <div className="relative min-h-screen flex items-center justify-center p-8">
-        <div className="max-w-2xl w-full">
-          {/* Header with Flames icon */}
-          <div className="text-center mb-12">
-            <div className="inline-flex items-center justify-center mb-6">
-              <img
-                src="/flame-icon.svg"
-                alt="Flames"
-                className="w-24 h-24 drop-shadow-[0_0_25px_rgba(59,130,246,0.5)]"
-              />
-            </div>
-
-            <h1 className="text-5xl font-bold text-white mb-4 tracking-tight">
-              Flames Blue
-            </h1>
-
-            <p className="text-xl text-blue-200 mb-6">
-              Build applications through conversation
-            </p>
+      <div className="relative z-10 max-w-7xl mx-auto px-6 py-14">
+        {/* Hero content */}
+        <div className="grid lg:grid-cols-2 gap-10 items-center">
+          <div className="order-2 lg:order-1">
+            <CuteChristmasScene />
           </div>
 
-          {/* Instructions */}
-          <div className="bg-slate-800/50 backdrop-blur-sm border border-blue-500/20 rounded-2xl p-8 shadow-xl mb-6">
-            <div className="flex items-start gap-4 mb-6">
-              <div className="flex-shrink-0 w-8 h-8 bg-blue-500 text-white rounded-lg flex items-center justify-center font-bold">
-                1
-              </div>
-              <div>
-                <h3 className="font-semibold text-white mb-1">Describe your idea</h3>
-                <p className="text-blue-200/80 text-sm">Use the chat panel on the left to tell the AI what you want to build</p>
-              </div>
-            </div>
+          <div className="order-1 lg:order-2">
+            <motion.h1
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              className="text-4xl sm:text-5xl font-extrabold tracking-tight text-rose-900"
+            >
+              Natal fofinho em 3D, perfeito para a sua loja online
+            </motion.h1>
 
-            <div className="flex items-start gap-4 mb-6">
-              <div className="flex-shrink-0 w-8 h-8 bg-blue-500 text-white rounded-lg flex items-center justify-center font-bold">
-                2
-              </div>
-              <div>
-                <h3 className="font-semibold text-white mb-1">Watch it build</h3>
-                <p className="text-blue-200/80 text-sm">Your app will appear in this preview as the AI generates the code</p>
-              </div>
-            </div>
+            <motion.p
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0, transition: { delay: 0.1 } }}
+              className="mt-4 text-rose-700/90 text-lg"
+            >
+              Uma cena com estilo clay/soft 3D, cores vibrantes em vermelho, verde e dourado, texturas macias e iluminação acolhedora. Espaço dedicado para seu texto ou chamada de compra.
+            </motion.p>
 
-            <div className="flex items-start gap-4">
-              <div className="flex-shrink-0 w-8 h-8 bg-blue-500 text-white rounded-lg flex items-center justify-center font-bold">
-                3
-              </div>
-              <div>
-                <h3 className="font-semibold text-white mb-1">Refine and iterate</h3>
-                <p className="text-blue-200/80 text-sm">Continue the conversation to add features and make changes</p>
-              </div>
-            </div>
-          </div>
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0, transition: { delay: 0.2 } }}
+              className="mt-8 flex flex-col sm:flex-row gap-3"
+            >
+              <a href="#" className="inline-flex items-center justify-center px-6 py-3 rounded-xl bg-rose-600 text-white font-semibold shadow-md shadow-rose-600/20 hover:bg-rose-700 transition-colors">
+                Ver Coleção
+              </a>
+              <a href="#" className="inline-flex items-center justify-center px-6 py-3 rounded-xl bg-amber-400 text-rose-900 font-semibold shadow-md shadow-amber-500/30 hover:bg-amber-300 transition-colors">
+                Presentes em Destaque
+              </a>
+            </motion.div>
 
-          {/* Footer */}
-          <div className="text-center">
-            <p className="text-sm text-blue-300/60">
-              No coding required • Just describe what you want
-            </p>
+            {/* space for custom text */}
+            <div className="mt-10 p-4 rounded-2xl bg-white/70 backdrop-blur border border-rose-200/50">
+              <p className="text-rose-900/80">
+                Seu texto aqui — promoções, mensagem de boas-vindas ou chamada para ação. O layout deixa um espaço amplo e limpo para comunicar sua oferta de Natal de forma amigável e festiva.
+              </p>
+            </div>
           </div>
         </div>
+      </div>
+
+      {/* footer hint */}
+      <div className="relative z-10 pb-10 text-center text-rose-900/60">
+        Feito com carinho para transmitir alegria natalina.
       </div>
     </div>
   )
